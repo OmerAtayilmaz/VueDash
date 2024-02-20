@@ -1,4 +1,6 @@
 <template>
+    <GuestLayout>
+
     <div class="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
         <h2 class="text-2xl font-semibold text-center mb-4">Login</h2>
         <form @submit.prevent="login()">
@@ -15,9 +17,13 @@
             </div>
         </form>
     </div>
+
+    </GuestLayout>
+    
 </template>
 <script setup lang="ts">
 
+import GuestLayout from '@/layout/GuestLayout.vue';
 import axios from 'axios';
 import { ref } from 'vue'
 import { useRouter } from 'vue-router';
