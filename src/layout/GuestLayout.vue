@@ -1,5 +1,6 @@
+
 <template>
-    <header>
+    <header class="w-full">
         <slot name="header"></slot>
     </header>
     <main>

@@ -43,7 +43,7 @@ async function login(){
 
         localStorage.setItem("token",token);
         console.log("başarıyla giriş yapıldı");
-        router.push('/home');
+        router.push('/');
        
         
 

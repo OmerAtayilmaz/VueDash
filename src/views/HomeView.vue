@@ -1,35 +1,36 @@
 <template>
 
-    <UserLayout>
+    <official-layout>
+        <template #header>
+            <Header />
+        </template>
+        
            <h1>All Products</h1>
        
 
         <RouterLink :to="{name:'login'}">LOGIN</RouterLink>
-    </UserLayout>
+    </official-layout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import {getAllProducts} from "@/api/product";
 import { type Product } from '@/models/ProductModel';
-import UserLayout from '@/layout/UserLayout.vue';
+import OfficialLayout from '@/layout/OfficialLayout.vue';
+import Header from '@/components/Header.vue';
+import LoginView from './LoginView.vue';
+import GuestLayout from '@/layout/GuestLayout.vue';
 
-export default defineComponent({
-    name: 'Products',
-    setup() {
+
         const products = ref<Product[]>([]);
-
         onMounted(async () => {
             try {
                 products.value = await getAllProducts();
-            } catch (error) {
+            }
+            catch (error) {
                 console.error('Error fetching products:', error);
             }
         });
+ 
 
-        return {
-            products
-        };
-    }
-});
 </script>
